@@ -39,4 +39,7 @@ export class AlumnoPage implements OnInit {
     this.mostrarImagenQR = false;
     this.renderer.removeClass(document.body, 'no-scroll');
   }
+cerrarSesion() {
+  this.router.navigate(['/login']); // Reemplaza 'pagina-anterior' con la URL de la página anterior
+}
 }

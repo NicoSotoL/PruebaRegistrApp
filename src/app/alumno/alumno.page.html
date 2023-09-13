@@ -6,7 +6,7 @@
     <ion-card-title>{{ userName }}</ion-card-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="ion-content-centered">
   <ion-grid>
     <ion-row justify-content-center align-items-center>
       <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
@@ -15,14 +15,23 @@
         </ion-button>
       </ion-col>
     </ion-row>
-    <div class="qr-container" *ngIf="mostrarImagenQR">
-      <ion-img src="assets/icon/qr.png" class="qr-image"></ion-img>
-      <button (click)="cerrarQR()" class="close-button">Cerrar</button>
-    </div>
+  </ion-grid>
+  <div class="qr-container" *ngIf="mostrarImagenQR">
+    <ion-img src="assets/icon/qr.png" class="qr-image"></ion-img>
+    <button (click)="cerrarQR()" class="close-button">Cerrar</button>
+  </div>
+
+  <ion-grid>
     <ion-row justify-content-center>
       <ion-col size-md="6" size-sm="10" size-xs="12">
-        <ion-img src="assets/icon/horario.png" class="responsive-image"></ion-img>
+        <ion-img src="assets/icon/horario.png" class="horario" class="responsive-image"></ion-img>
       </ion-col>
     </ion-row>
   </ion-grid>
+  <div class="back-button-container">
+    <ion-button color="warning" class="small-back-button" (click)="cerrarSesion()">
+      Volver
+    </ion-button>
+  </div>
 </ion-content>
+

@@ -17,7 +17,7 @@ export class LoginPage {
   validateUser(user: Usuario): boolean {
     if (
       (user.email === 'benito@duoc.cl' && user.password === 'Benito321') ||
-      (user.email === 'tego@profeduoc.cl' && user.password === 'Tego3210')
+      (user.email === 'tego@profeduoc.cl' && user.password === 'Calderon321')
     ) {
       return true;
     } else {
@@ -28,7 +28,7 @@ export class LoginPage {
   validatePassword() {
     if (this.user.email === 'benito@duoc.cl' && this.user.password === 'Benito321') {
       this.isPasswordValid = true;
-    } else if (this.user.email === 'tego@profeduoc.cl' && this.user.password === 'Tego3210') {
+    } else if (this.user.email === 'tego@profeduoc.cl' && this.user.password === 'Calderon321') {
       this.isPasswordValid = true;
     } else {
       this.isPasswordValid = false;

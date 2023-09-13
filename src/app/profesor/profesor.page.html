@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      RegistrApp
+    </ion-title>
+    <ion-card-title>{{ userName }}</ion-card-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="center-container">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
+        <ion-button expand="full" color="primary" (click)="mostrarQR()">
+          Asignatura 1
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center align-items-center>
+      <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
+        <ion-button expand="full" color="primary" (click)="mostrarQR()">
+          Asignatura 2
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center align-items-center>
+      <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
+        <ion-button expand="full" color="primary" (click)="mostrarQR()">
+          Asignatura 2
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center align-items-center>
+      <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
+        <ion-button expand="full" color="primary" (click)="mostrarQR()">
+          Asignatura 3
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center align-items-center>
+      <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
+        <ion-button expand="full" color="primary" (click)="mostrarQR()">
+          Asignatura 4
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  
+    <div class="qr-container" *ngIf="mostrarImagenQR">
+      <ion-img src="assets/icon/qr.png" class="qr-image"></ion-img>
+      <button (click)="cerrarQR()" class="close-button">Cerrar</button>
+    </div>
+  </ion-grid>
+</div>
+</ion-content>

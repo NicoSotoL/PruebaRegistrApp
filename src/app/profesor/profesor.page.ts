@@ -37,4 +37,7 @@ this.mostrarImagenQR = true;
 this.mostrarImagenQR = false;
     this.renderer.removeClass(document.body, 'no-scroll');
   }
-}
+  cerrarSesion() {
+    this.router.navigate(['/home']);
+  }
+  }

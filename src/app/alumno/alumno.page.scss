@@ -1,4 +1,4 @@
-.qr-overlay {
+.qr-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,20 +9,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
+  }
   
-    .qr-image {
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
-    }
+  .qr-image {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+  }
   
-    .close-button {
-      margin-top: 10px;
-      background-color: transparent;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
+  .close-button {
+    margin-top: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
   }
   
   .no-scroll {

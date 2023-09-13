@@ -9,6 +9,9 @@ ion-header {
     text-transform: uppercase;
     text-align: center;
   }
+  ion-card-title {
+    text-align: center;
+  } 
   
   ion-content {
     display: flex;
@@ -87,6 +90,6 @@ ion-header {
   }
   
   .fade-in {
-    animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 0.8s ease-in-out;
   }
   

@@ -1,13 +1,20 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>alumno</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>
+      RegistrApp
+    </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">alumno</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+  <div class="example-content">INICIA SESIÓN</div>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="documents"></ion-icon>
+        Asignaturas
+      </ion-tab-button>
+      <ion-tab-button tab="radio">
+        <ion-icon name="calendar-number"></ion-icon>
+        Horario
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>

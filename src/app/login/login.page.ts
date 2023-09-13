@@ -10,14 +10,14 @@ import { Router, NavigationExtras } from '@angular/router';
 export class LoginPage {
   user: Usuario = new Usuario();
   isPasswordValid: boolean = false;
-  validEmailPattern: string = '^(yoelmonkey@duocuc.cl|kike@profeduoc.cl)$';
+  validEmailPattern: string = '^(benito@duoc.cl|tego@profeduoc.cl)$';
 
   constructor(private router: Router) {}
 
   validateUser(user: Usuario): boolean {
     if (
-      (user.email === 'yoelmonkey@duocuc.cl' && user.password === 'monkey123_') ||
-      (user.email === 'kike@profeduoc.cl' && user.password === 'kike123_')
+      (user.email === 'benito@duoc.cl' && user.password === 'Benito321') ||
+      (user.email === 'tego@profeduoc.cl' && user.password === 'Tego3210')
     ) {
       return true;
     } else {
@@ -26,19 +26,19 @@ export class LoginPage {
   }
 
   validatePassword() {
-    if (this.user.email === 'yoelmonkey@duocuc.cl' && this.user.password === 'monkey123_') {
+    if (this.user.email === 'benito@duoc.cl' && this.user.password === 'Benito321') {
       this.isPasswordValid = true;
-    } else if (this.user.email === 'kike@profeduoc.cl' && this.user.password === 'kike123_') {
+    } else if (this.user.email === 'tego@profeduoc.cl' && this.user.password === 'Tego3210') {
       this.isPasswordValid = true;
     } else {
       this.isPasswordValid = false;
     }
   }
   getUserName(email: string): string {
-    if (email === 'yoelmonkey@duocuc.cl') {
-      return 'Macacinho';
-    } else if (email === 'kike@profeduoc.cl') {
-      return 'Kike  Morande';
+    if (email === 'benito@duoc.cl') {
+      return 'Bad Bunny';
+    } else if (email === 'tego@profeduoc.cl') {
+      return 'Tego Calderón';
     }
     return '';
   }
@@ -49,14 +49,14 @@ export class LoginPage {
       console.log('Inicio de sesión exitoso');
 
       let NavigationExtras: NavigationExtras = {
-      state: {user: this.user.email, telefono: "69696969", name: this.getUserName(this.user.email)}
+      state: {user: this.user.email, telefono: "11111111", name: this.getUserName(this.user.email)}
 
       };
 
-      if (this.user.email === 'yoelmonkey@duocuc.cl') {
+      if (this.user.email === 'benito@duoc.cl') {
         this.router.navigate(['/alumno'],NavigationExtras);
       }
-      else if (this.user.email === 'kike@profeduoc.cl') {
+      else if (this.user.email === 'tego@profeduoc.cl') {
         this.router.navigate(['/profesor'],NavigationExtras);
       } else {
         this.router.navigate(['/scanner']);
@@ -64,5 +64,5 @@ export class LoginPage {
     } else {
       console.log('Credenciales incorrectas');
     }
- }
+  }
 }

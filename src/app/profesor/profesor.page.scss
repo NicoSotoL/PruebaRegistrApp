@@ -41,3 +41,28 @@
     align-items: center;
     height: 100%;
   }
+  
+  .back-button-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+  }
+  
+  .small-back-button {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  

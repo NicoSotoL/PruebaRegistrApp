@@ -15,7 +15,10 @@
         </ion-button>
       </ion-col>
     </ion-row>
-    
+    <div class="qr-container" *ngIf="mostrarImagenQR">
+      <ion-img src="assets/icon/qr.png" class="qr-image"></ion-img>
+      <button (click)="cerrarQR()" class="close-button">Cerrar</button>
+    </div>
     <ion-row justify-content-center>
       <ion-col size-md="6" size-sm="10" size-xs="12">
         <ion-img src="assets/icon/horario.png" class="responsive-image"></ion-img>

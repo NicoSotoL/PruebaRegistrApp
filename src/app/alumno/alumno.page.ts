@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class AlumnoPage implements OnInit {
   userHome = "";
   userName = "";
+  mostrarImagenQR = false; // Agregamos una variable para controlar la visibilidad de la imagen QR
 
   constructor(
     private activeroute: ActivatedRoute,
@@ -28,22 +29,14 @@ export class AlumnoPage implements OnInit {
   }
 
   mostrarQR() {
-    const qrImage = document.createElement('div');
-    qrImage.innerHTML = `
-      <div class="qr-overlay">
-        <ion-img src="assets/icon/qr.png" class="responsive-image" class="qr-image">
-        <button (click)="cerrarQR()" class="close-button">Cerrar</button>
-      </div>
-    `;
-    this.renderer.appendChild(this.el.nativeElement, qrImage);
+    // Mostrar la imagen QR al establecer la variable mostrarImagenQR en true
+    this.mostrarImagenQR = true;
     this.renderer.addClass(document.body, 'no-scroll');
   }
 
   cerrarQR() {
-    const qrOverlay = document.querySelector('.qr-overlay');
-    if (qrOverlay) {
-      qrOverlay.remove();
-      this.renderer.removeClass(document.body, 'no-scroll');
-    }
+    // Cerrar la imagen QR al establecer la variable mostrarImagenQR en false
+    this.mostrarImagenQR = false;
+    this.renderer.removeClass(document.body, 'no-scroll');
   }
 }

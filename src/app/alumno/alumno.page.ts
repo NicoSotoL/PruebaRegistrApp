@@ -9,8 +9,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class AlumnoPage implements OnInit {
   userHome = "";
   userName = "";
-  mostrarImagenQR = false; // Agregamos una variable para controlar la visibilidad de la imagen QR
-
+  mostrarImagenQR = false;
+  
   constructor(
     private activeroute: ActivatedRoute,
     private router: Router,
@@ -29,14 +29,15 @@ export class AlumnoPage implements OnInit {
   }
 
   mostrarQR() {
-    // Mostrar la imagen QR al establecer la variable mostrarImagenQR en true
     this.mostrarImagenQR = true;
     this.renderer.addClass(document.body, 'no-scroll');
   }
 
   cerrarQR() {
-    // Cerrar la imagen QR al establecer la variable mostrarImagenQR en false
     this.mostrarImagenQR = false;
     this.renderer.removeClass(document.body, 'no-scroll');
   }
+cerrarSesion() {
+  this.router.navigate(['/home']);
+}
 }

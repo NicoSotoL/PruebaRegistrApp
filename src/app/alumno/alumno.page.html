@@ -16,7 +16,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <div class="qr-container" *ngIf="mostrarImagenQR">
+  <div class="qr-container" *ngIf="mostrarImagenQR" [ngClass]="{'fade-in': mostrarImagenQR}">>
     <ion-img src="assets/icon/qr.png" class="qr-image"></ion-img>
     <button (click)="cerrarQR()" class="close-button">Cerrar</button>
   </div>

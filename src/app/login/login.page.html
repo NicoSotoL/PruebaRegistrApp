@@ -48,14 +48,10 @@
       [disabled]="!loginForm.valid || !isPasswordValid"
       color="warning"
       routerLink="/scanner"
+      class="pulsing-button"
     >
       Iniciar Sesión
     </ion-button>
-
-    <div class="forgot-password-link">
-      <a href="#">¿Olvidaste tu contraseña?</a>
-    </div>
-
     <div *ngIf="loginForm.submitted && !validateUser(user)" class="error-message">
       Credenciales incorrectas. Por favor, inténtelo de nuevo.
     </div>

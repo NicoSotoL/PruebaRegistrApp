@@ -3,18 +3,25 @@
     <ion-title>
       RegistrApp
     </ion-title>
+    <ion-card-title>{{ userName }}</ion-card-title>
   </ion-toolbar>
 </ion-header>
-  <div class="example-content">INICIA SESIÓN</div>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
-        <ion-icon name="documents"></ion-icon>
-        Asignaturas
-      </ion-tab-button>
-      <ion-tab-button tab="radio">
-        <ion-icon name="calendar-number"></ion-icon>
-        Horario
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+<ion-content>
+  <ion-grid>
+    <ion-row justify-content-center align-items-center>
+      <!-- Botón para Registrar Asistencia -->
+      <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
+        <ion-button expand="full" color="primary" (click)="registrarAsistencia()">
+          Registrar Asistencia
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- Imagen -->
+    <ion-row justify-content-center>
+      <ion-col size-md="6" size-sm="10" size-xs="12">
+        <ion-img src="assets/icon/horario.png" class="responsive-image"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
-import { ActivatedRoute, Router, NavigationExtras } from "@angular/router";
+import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-alumno',
@@ -11,13 +10,12 @@ export class AlumnoPage implements OnInit {
   userHome = "";
   userName = "";
 
-
-  constructor(private activeroute: ActivatedRoute,
-    private actionSheetCtrl: ActionSheetController,
-
-    private router: Router
+  constructor(
+    private activeroute: ActivatedRoute,
+    private router: Router,
+    private renderer: Renderer2,
+    private el: ElementRef
   ) {
-
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.userHome = this.router.getCurrentNavigation()?.extras.state?.['user'];
@@ -25,9 +23,27 @@ export class AlumnoPage implements OnInit {
       }
     });
   }
+
   ngOnInit() {
   }
 
-  registrarAsistencia() {
+  mostrarQR() {
+    const qrImage = document.createElement('div');
+    qrImage.innerHTML = `
+      <div class="qr-overlay">
+        <ion-img src="assets/icon/qr.png" class="responsive-image" class="qr-image">
+        <button (click)="cerrarQR()" class="close-button">Cerrar</button>
+      </div>
+    `;
+    this.renderer.appendChild(this.el.nativeElement, qrImage);
+    this.renderer.addClass(document.body, 'no-scroll');
   }
+
+  cerrarQR() {
+    const qrOverlay = document.querySelector('.qr-overlay');
+    if (qrOverlay) {
+      qrOverlay.remove();
+      this.renderer.removeClass(document.body, 'no-scroll');
+    }
   }
+}

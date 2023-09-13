@@ -1,0 +1,43 @@
+.qr-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .qr-image {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+  }
+  
+  .close-button {
+    margin-top: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  ion-title ,  ion-card-title{
+    text-align: center;
+    display: block;
+  }
+  
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }

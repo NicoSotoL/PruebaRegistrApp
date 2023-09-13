@@ -1,3 +1,9 @@
+ion-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
 .qr-container {
     position: fixed;
     top: 0;
@@ -40,4 +46,14 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+  }
+
+  lista {
+    margin-top: 5%;
+  }
+  .back-button-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
   }

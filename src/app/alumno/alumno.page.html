@@ -11,17 +11,17 @@
   <ion-grid>
     <ion-row justify-content-center align-items-center>
       <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
-        <ion-button expand="full" color="primary" (click)="mostrarQR()">
+        <ion-button expand="block" color="success" (click)="leerCode()">
           Registrar Asistencia
         </ion-button>
+        <div *ngIf="datoscaneado">
+          <p>
+            Asistencia Ok
+          </p>s
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <div class="qr-container" *ngIf="mostrarImagenQR" [ngClass]="{'fade-in': mostrarImagenQR}">>
-    <ion-img src="assets/icon/qr_done.jpg" class="qr-image"></ion-img>
-    <button (click)="cerrarQR()" class="close-button">Cerrar</button>
-  </div>
-
   <ion-grid>
     <ion-row justify-content-center>
       <ion-col size-md="6" size-sm="10" size-xs="12">

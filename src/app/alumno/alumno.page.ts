@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
+import { BarcodeScannerOptions,BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-alumno',
@@ -9,14 +10,14 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class AlumnoPage implements OnInit {
   userHome = "";
   userName = "";
-  mostrarImagenQR = false;
+  datoscaneado = {};
   
   constructor(
     private activeroute: ActivatedRoute,
     private router: Router,
     private renderer: Renderer2,
-    private el: ElementRef
-  ) {
+    private el: ElementRef,
+    private barcodeScanner: BarcodeScanner) {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.userHome = this.router.getCurrentNavigation()?.extras.state?.['user'];
@@ -28,15 +29,15 @@ export class AlumnoPage implements OnInit {
   ngOnInit() {
   }
 
-  mostrarQR() {
-    this.mostrarImagenQR = true;
-    this.renderer.addClass(document.body, 'no-scroll');
+  leerCode() {
+    this.barcodeScanner.scan().then(this.barcodeData = > {
+      this.datoscaneado = barcodeData;
+    })
+    .catch(err =>{
+      console.log("Error"),err
+    })
   }
 
-  cerrarQR() {
-    this.mostrarImagenQR = false;
-    this.renderer.removeClass(document.body, 'no-scroll');
-  }
 cerrarSesion() {
   this.router.navigate(['/home']);
 }

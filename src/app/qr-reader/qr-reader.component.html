@@ -1,0 +1,8 @@
+<ngx-qr-reader #ngxQrReader
+              (qrCodeRead)="onQRCodeRead($event)">
+</ngx-qr-reader>
+
+<div class="result">
+  <h4>Resultado:</h4>
+  <p>{{ qrResult }}</p>
+</div>

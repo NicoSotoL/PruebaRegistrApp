@@ -23,6 +23,11 @@ const routes: Routes = [
     path: 'profesor',
     loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
+  },
+
 
   
 

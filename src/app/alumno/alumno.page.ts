@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
+import { Camera, CameraResultType,CameraSource } from '@capacitor/camera';
 
 @Component({
   selector: 'app-alumno',
@@ -10,7 +11,8 @@ export class AlumnoPage implements OnInit {
   userHome = "";
   userName = "";
   mostrarImagenQR = false;
-  
+  imageUrl: string = ''; 
+
   constructor(
     private activeroute: ActivatedRoute,
     private router: Router,
@@ -28,6 +30,17 @@ export class AlumnoPage implements OnInit {
   ngOnInit() {
   }
 
+  async takePicture() {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri,
+      source: CameraSource.Camera 
+    });
+
+  }
+  
+
   mostrarQR() {
     this.mostrarImagenQR = true;
     this.renderer.addClass(document.body, 'no-scroll');
@@ -37,7 +50,8 @@ export class AlumnoPage implements OnInit {
     this.mostrarImagenQR = false;
     this.renderer.removeClass(document.body, 'no-scroll');
   }
-cerrarSesion() {
-  this.router.navigate(['/home']);
-}
+
+  cerrarSesion() {
+    this.router.navigate(['/home']);
+  }
 }

@@ -18,12 +18,6 @@ ion-title {
     z-index: 1000;
   }
   
-  .qr-image {
-    max-width: 90%;
-    max-height: 80%;
-    object-fit: contain;
-  }
-  
   .close-button {
     margin-top: 10px;
     background-color: transparent;
@@ -50,7 +44,7 @@ ion-title {
 
   
   .back-button-container {
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     left: 10px;
     z-index: 1000;

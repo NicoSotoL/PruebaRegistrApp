@@ -10,6 +10,14 @@ export class ProfesorPage implements OnInit {
   userHome = "";
   userName = "";
   mostrarImagenQR = false; // Agregamos una variable para controlar la visibilidad de la imagen QR
+  qrCodeString: string = "";
+  asignaturas: any[] = [
+    { nombre: 'Asignatura 1', seccion: 'Seccion A' },
+    { nombre: 'Asignatura 2', seccion: 'Seccion B' },
+    { nombre: 'Asignatura 3', seccion: 'Seccion C' },
+    { nombre: 'Asignatura 4', seccion: 'Seccion D' },
+    { nombre: 'Asignatura 5', seccion: 'Seccion E' }
+  ];
 
   constructor(
     private activeroute: ActivatedRoute,
@@ -28,11 +36,11 @@ export class ProfesorPage implements OnInit {
   ngOnInit() {
   }
 
-  mostrarQR() {
-this.mostrarImagenQR = true;
+  mostrarQR(asignatura: string, seccion: string) {
+    this.qrCodeString = `Asignatura: ${asignatura}, Sección: ${seccion}`;
+    this.mostrarImagenQR = true;
     this.renderer.addClass(document.body, 'no-scroll');
   }
-
   cerrarQR() {
 this.mostrarImagenQR = false;
     this.renderer.removeClass(document.body, 'no-scroll');

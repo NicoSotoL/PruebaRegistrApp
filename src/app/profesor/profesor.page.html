@@ -6,52 +6,29 @@
     <ion-card-title>{{ userName }}</ion-card-title>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
-  <img src="assets/icon/logoRegistrApp.png">
-  <div class="center-container" class="lista"><ion-grid>
-    <ion-row>
-      <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
-        <ion-button expand="full" color="primary" (click)="mostrarQR()">
-          Asignatura 1 // Seccion A
-        </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row justify-content-center align-items-center>
-      <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
-        <ion-button expand="full" color="primary" (click)="mostrarQR()">
-          Asignatura 2 // Seccion B
-        </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row justify-content-center align-items-center>
-      <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
-        <ion-button expand="full" color="primary" (click)="mostrarQR()">
-          Asignatura 3 // Seccion C
-        </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row justify-content-center align-items-center>
-      <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
-        <ion-button expand="full" color="primary" (click)="mostrarQR()">
-          Asignatura 4 // Seccion D
-        </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row justify-content-center align-items-center>
-      <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
-        <ion-button expand="full" color="primary" (click)="mostrarQR()">
-          Asignatura 5 // Seccion E
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  
+<ion-content class="ion-padding" [class.no-scroll]="mostrarImagenQR">
+  <div class="center-container lista">
+    <ion-grid>
+      <ion-row justify-content-center align-items-center *ngFor="let asignatura of asignaturas; let i = index">
+        <ion-col size-md="6" size-sm="10" size-xs="12" class="button-container">
+          <ion-button expand="full" color="primary" (click)="mostrarQR(asignatura.nombre, asignatura.seccion)">
+            {{ asignatura.nombre }} // {{ asignatura.seccion }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
     <div class="qr-container" *ngIf="mostrarImagenQR">
-      <ion-img src="assets/icon/qr.png" class="qr-image"></ion-img>
+      <ion-card class="ion-text-center">
+        <ion-card-content>
+          <qrcode [qrdata]="qrCodeString" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+        </ion-card-content>
+      </ion-card>
       <button (click)="cerrarQR()" class="close-button">Cerrar</button>
     </div>
-  </ion-grid>
-</div>
-<div class="back-button-container">
+  </div>
+
+  <div class="back-button-container">
     <ion-button color="warning" class="small-back-button" (click)="cerrarSesion()">
       Volver
     </ion-button>
